@@ -7,11 +7,15 @@ package com.sparklytix.android.sikulichimp.resolver;
  * @author rohit
  * 
  */
-public class ScreenShotsPNGImageResolver implements IImageResolver {
+public class PrefixPostFixImageResolver implements IImageResolver {
 
-	public static final String PREFIX = "screenshots/";
-	public static final String POSTFIX = ".png";
-
+	private String prefix;
+	private String postFix;
+	
+	public PrefixPostFixImageResolver(String prefix,String postFix){
+		this.prefix=prefix;
+		this.postFix=postFix;
+	}
 	/**
 	 * Given that the imageName is "button", this method returns
 	 * "screenshots/button.png"
@@ -22,7 +26,7 @@ public class ScreenShotsPNGImageResolver implements IImageResolver {
 	 */
 	@Override
 	public String getImagePath(String imageName) {
-		return PREFIX + imageName + POSTFIX;
+		return prefix + imageName + postFix;
 	}
 
 }
